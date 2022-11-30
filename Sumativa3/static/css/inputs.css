@@ -73,3 +73,11 @@ textarea:focus {
 .ocultar {
     display: none;
 }
+
+.rut {
+    width: 50%;
+}
+
+.dv {
+    width: 10%;
+}

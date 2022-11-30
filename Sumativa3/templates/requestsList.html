@@ -18,22 +18,7 @@
     </header>
     <form method="GET">
         {% csrf_token %}
-        <!-- <div class="d-flex">
-            <div class="mx-2">
-                <input class="my-1" type="text" placeholder="Fecha nacimiento">
-                <input class="my-1" type="text" placeholder="Donante">
-                <input class="my-1" type="text" placeholder="Tipo de Solicitud">
-                <input class="my-1" type="number" placeholder="Rut" name="rut">
-            </div>
-            <div class="mx-2">
-                <input class="my-1" type="text" placeholder="Fecha Solicitud Inicio">
-                <input class="my-1" type="text" placeholder="Fecha Solicitud Termino">
-                <input class="my-1" type="text" placeholder="Estado Civil">
-            </div>
-        </div> -->
-
         {{myFilter.form}}
-
         <div>
             <input class="btn btn-primary my-5" type="submit" value="Buscar">
         </div>
@@ -67,7 +52,6 @@
                         <td>{{i.estadoCivilId}}</td>
                         <td>{{i.observaciones}}</td>
                         <td>
-                            <a id="btnEditar" class="btn btn-warning my-1" href="">Editar</a>
                             <a class="btn btn-danger" href="deleteRequest/{{i.id_solicitud}}">Eliminar</a>
                         </td>
                     </tr>

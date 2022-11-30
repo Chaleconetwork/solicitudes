@@ -11,10 +11,16 @@ class FormSolicitud(forms.ModelForm):
     donante.widget.attrs['class']='radios'
     fsolicitud = forms.DateField(initial=datetime.date.today)
 
+    rut = forms.IntegerField()
+    dv = forms.CharField()
+
+    rut.widget.attrs['class']='rut'
+    dv.widget.attrs['class']='dv'
+
     class Meta:
         model = Solicitud
         fields = '__all__'
         widgets = {
-            'fnacimiento': DateTimeInput( attrs={'type': 'date'})
+            'fnacimiento': DateTimeInput(attrs={'type': 'date'})
         }
         

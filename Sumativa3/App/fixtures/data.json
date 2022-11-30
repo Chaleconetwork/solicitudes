@@ -1,0 +1,34 @@
+[
+    {
+        "model": "App.EstadoCivil",
+        "pk": 1,
+        "fields": {
+            "estadoCivilId": 1,
+            "estadoCivil": "Soltero"
+        }
+    },
+    {
+        "model": "App.EstadoCivil",
+        "pk": 2,
+        "fields": {
+            "estadoCivilId": 2,
+            "estadoCivil": "Casado"
+        }
+    },
+    {
+        "model": "App.TipoSolicitud",
+        "pk": 1,
+        "fields": {
+            "tipoSolicitudId": 1,
+            "tipoSolicitud": "Entrega de examen"
+        }
+    },
+    {
+        "model": "App.TipoSolicitud",
+        "pk": 2,
+        "fields": {
+            "tipoSolicitudId": 2,
+            "tipoSolicitud": "Hora médica"
+        }
+    }
+]

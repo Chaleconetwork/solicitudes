@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tallerprog',
         'USER': 'root',
-        'PASSWORD': 'admin'
+        'PASSWORD': 'root'
     }
 }
 
