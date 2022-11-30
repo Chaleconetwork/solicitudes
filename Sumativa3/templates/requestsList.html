@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'css/inputs.css' %}">
+    <title>Solicitudes</title>
+</head>
+<body class="container mt-5">
+    <header class="alert alert-info display-1 text-center">
+        <h1>Listado de Solicitudes de Salud</h1>        
+    </header>
+    <form method="GET">
+        {% csrf_token %}
+        <!-- <div class="d-flex">
+            <div class="mx-2">
+                <input class="my-1" type="text" placeholder="Fecha nacimiento">
+                <input class="my-1" type="text" placeholder="Donante">
+                <input class="my-1" type="text" placeholder="Tipo de Solicitud">
+                <input class="my-1" type="number" placeholder="Rut" name="rut">
+            </div>
+            <div class="mx-2">
+                <input class="my-1" type="text" placeholder="Fecha Solicitud Inicio">
+                <input class="my-1" type="text" placeholder="Fecha Solicitud Termino">
+                <input class="my-1" type="text" placeholder="Estado Civil">
+            </div>
+        </div> -->
+
+        {{myFilter.form}}
+
+        <div>
+            <input class="btn btn-primary my-5" type="submit" value="Buscar">
+        </div>
+    </form>
+    <table class="table">
+        {% if solicitudes %}
+            <thead>
+            <tr>
+                <th scope="col">Id Solicitud</th>
+                <th scope="col">Fecha de Solicitud</th>
+                <th scope="col">Nombres y Apellidos</th>
+                <th scope="col">Rut</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Donante</th>
+                <th scope="col">Tipo de Solicitud</th>
+                <th scope="col">Estado Civil</th>
+                <th scope="col">Observaciones</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for i in solicitudes %}
+                    <tr>
+                        <td>{{i.id_solicitud}}</td>
+                        <td>{{i.fsolicitud}}</td>
+                        <td>{{i.nombres}} {{i.apPaterno}} {{apMaterno}}</td>
+                        <td>{{i.rut}}-{{i.dv}}</td>
+                        <td>{{i.fnacimiento}}</td>
+                        <td>{{i.donante}}</td>
+                        <td>{{i.tipoSolicitudId}}</td>
+                        <td>{{i.estadoCivilId}}</td>
+                        <td>{{i.observaciones}}</td>
+                        <td>
+                            <a id="btnEditar" class="btn btn-warning my-1" href="">Editar</a>
+                            <a class="btn btn-danger" href="deleteRequest/{{i.id_solicitud}}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        {% else %}
+            <div class="alert alert-info">Aún no se ha realizado ninguna solicitud para el día de hoy</div>
+        {% endif %} 
+        <tr>
+            <td colspan="10">
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-primary mx-2" href="{% url 'home' %}">Volver</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
